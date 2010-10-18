@@ -1,19 +1,16 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>StudiDb</title>
-    <%= csrf_meta_tag %>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <%= stylesheet_link_tag :all %>
     <link rel="stylesheet" type="text/css" href="ext/resources/css/ext-all.css">
-    <script type="text/javascript" src="ext/adapter/ext/ext-base.js"></script>
-    <script type="text/javascript" src="ext/ext-all-debug.js"></script>
-    <script type="text/javascript"> 
-      Ext.BLANK_IMAGE_URL = 'ext/resources/images/default/s.gif';
- 
-      Ext.onReady(function() {
-      });
-    </script>
+    <%= javascript_include_tag :defaults %>
+    <%= csrf_meta_tag %>
   </head>
   <body>
-    <%= yield %>
+    <div id="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
