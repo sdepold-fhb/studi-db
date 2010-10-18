@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  family_name: MyString
+  birthdate: 2010-10-18
+
+two:
+  name: MyString
+  family_name: MyString
+  birthdate: 2010-10-18
