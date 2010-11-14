@@ -15,4 +15,17 @@ class Student < ActiveRecord::Base
   validates_presence_of :house_number
   validates_presence_of :zip_code
   validates_presence_of :city
+
+  def generate_courses
+    my_courses = []
+
+    (1 + rand(20)).times do
+      my_courses << Course.generate_random
+    end
+
+    my_courses.each do |course|
+      course.save
+      Exam.create :student_id => id, :course_id => course.id
+    end
+  end
 end
