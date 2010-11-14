@@ -4,12 +4,12 @@
     <title>StudiDb</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <%= stylesheet_link_tag :all %>
-    <link rel="stylesheet" type="text/css" href="ext/resources/css/ext-all.css">
+    <%= stylesheet_link_tag 'style' %>
     <%= javascript_include_tag :defaults %>
     <%= csrf_meta_tag %>
   </head>
   <body>
-    <div id="container">
+    <div id="page">
       <%= yield %>
     </div>
   </body>
