@@ -11,3 +11,5 @@ de:
       create: Neuen Studenten anlegen
       show: Studenten anzeigen
       edit: Student bearbeiten
+      marks: Noten anzeigen
+      courses: Belegte Kurse anzeigen
