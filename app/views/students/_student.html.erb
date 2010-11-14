@@ -6,6 +6,8 @@
   <td>
     <%= link_to "Anzeigen", student %> |
     <%= link_to "Bearbeiten", :controller => :students, :action => :edit, :id => student.id %> |
-    <%= link_to "Löschen", url_for(:controller => :students, :action => :destroy, :id => student.id), :confirm => "Soll der Student ##{student.matriculation_number} wirklich gelöscht werden?" %>
+    <%= link_to "Löschen", url_for(:controller => :students, :action => :destroy, :id => student.id), :confirm => "Soll der Student ##{student.matriculation_number} wirklich gelöscht werden?" %> |
+    <%= link_to "Noten anzeigen", :controller => :students, :action => :marks, :id => student.id %> |
+    <%= link_to "Kurse anzeigen", :controller => :students, :action => :courses, :id => student.id %>
   </td>
 </tr>

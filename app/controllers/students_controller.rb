@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController
+  before_filter :find_student, :only => [:show, :edit, :update, :marks, :courses]
+
   def new
     @student = Student.new
   end
@@ -8,15 +10,12 @@ class StudentsController < ApplicationController
   end
 
   def show
-    @student = Student.find params[:id]
   end
 
   def edit
-    @student = Student.find params[:id]
   end
 
   def update
-    @student = Student.find params[:id]
     if @student.update_attributes params[:student]
       flash[:info] = "Student wurde erfolgreich gespeichert!"
       redirect_to :action => :show, :id => @student.id
@@ -35,5 +34,19 @@ class StudentsController < ApplicationController
       flash[:error] = "Beim Anlegen des Studenten sind fehler aufgetreten!"
       render :new
     end
+  end
+
+  def marks
+    
+  end
+
+  def courses
+
+  end
+
+  private
+
+  def find_student
+    @student = Student.find params[:id]
   end
 end
