@@ -8,4 +8,5 @@ de:
     students:
       root: Studenten
       new: Neuen Studenten anlegen
+      create: Neuen Studenten anlegen
       show: Studenten anzeigen

@@ -12,9 +12,15 @@
   </head>
   <body>
     <div id="page">
-      <h1>Studi-DB 2.0</h1>
-
+      <h1><%= link_to "Studi-DB 2.0", "/" %></h1>
       <div id="breadcrumb"><%= raw breadcrumb %></div>
+      <% if flash.keys.size > 0 %>
+        <div id="flashes">
+          <% flash.each do |status, message| %>
+            <div class="<%= status %>"><%= message %></div>
+          <% end %>
+        </div>
+      <% end %>
 
       <%= yield %>
     </div>

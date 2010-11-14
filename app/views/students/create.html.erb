@@ -1,3 +1,5 @@
+<%= content_tag :pre, @student.errors.to_yaml if @student.errors.presence %><br/>
+
 <% form_for @student, :action => :create do |f| %>
   <%= render :partial => "form", :locals => {:f => f} %>
   <br/><%= f.submit "Student anlegen" %>
