@@ -6,7 +6,7 @@ class Student < ActiveRecord::Base
   validates_uniqueness_of :matriculation_number
   validates_presence_of :first_name
   validates_presence_of :last_name
-  validates_presence_of :birthday
+#  validates_presence_of :birthday
   validates_presence_of :place_of_birth
   validates_presence_of :study_course
   validates_presence_of :nationality
