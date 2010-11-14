@@ -1,7 +1,6 @@
 class StudentsController < ApplicationController
   def new
     @student = Student.new
-    render :create
   end
 
   def index
@@ -22,6 +21,7 @@ class StudentsController < ApplicationController
       redirect_to :action => :show, :id => @student.id
     else
       flash[:error] = "Beim Anlegen des Studenten sind fehler aufgetreten!"
+      render :new
     end
   end
 end
