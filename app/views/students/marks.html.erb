@@ -1,0 +1,10 @@
+<h2><%= @student.last_name %>, <%= @student.first_name %></h2>
+
+<div style="padding-left: 20px;">
+  <% @student.exams.each do |e| %>
+    <div class="key_value_row">
+      <span class="label_like">&raquo; <%= e.course.title %>:</span>
+      <span class="value_like"><%= e.result %></span>
+    </div>
+  <% end %>
+</div>
