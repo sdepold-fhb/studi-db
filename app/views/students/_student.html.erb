@@ -1,0 +1,11 @@
+<tr class="<%= cycle "even", "odd" %>">
+  <td><%= student.matriculation_number %></td>
+  <td><%= student.last_name %></td>
+  <td><%= student.first_name %></td>
+  <td><%= student.current_term %></td>
+  <td>
+    <%= link_to "Anzeigen", student %> |
+    <%= link_to "Bearbeiten", :controller => :students, :action => :edit, :id => student.id %> |
+    <%= link_to "Löschen", url_for(:controller => :students, :action => :destroy, :id => student.id), :confirm => "Soll der Student ##{student.matriculation_number} wirklich gelöscht werden?" %>
+  </td>
+</tr>
