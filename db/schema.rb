@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101114123519) do
+ActiveRecord::Schema.define(:version => 20101114203904) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20101114123519) do
     t.integer  "number"
     t.string   "title"
     t.text     "description"
-    t.string   "lacturer"
+    t.string   "lecturer"
     t.string   "term"
   end
 
