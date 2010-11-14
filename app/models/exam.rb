@@ -1,4 +1,4 @@
 class Exam < ActiveRecord::Base
-  has_one :student
-  has_one :course
+  belongs_to :student
+  belongs_to :course
 end
