@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20101114123519) do
     t.string   "place_of_birth"
     t.string   "study_course"
     t.string   "nationality"
-    t.string   "current_term"
+    t.integer  "current_term",         :default => 0
     t.string   "street"
     t.string   "house_number"
     t.integer  "zip_code"

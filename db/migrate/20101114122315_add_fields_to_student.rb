@@ -7,7 +7,7 @@ class AddFieldsToStudent < ActiveRecord::Migration
     add_column :students, :place_of_birth, :string
     add_column :students, :study_course, :string
     add_column :students, :nationality, :string
-    add_column :students, :current_term, :string
+    add_column :students, :current_term, :integer, :default => 0
     add_column :students, :street, :string
     add_column :students, :house_number, :string
     add_column :students, :zip_code, :integer
