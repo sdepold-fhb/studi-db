@@ -37,11 +37,9 @@ class StudentsController < ApplicationController
   end
 
   def marks
-    
   end
 
   def courses
-
   end
 
   private
