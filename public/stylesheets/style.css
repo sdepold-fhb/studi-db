@@ -1,7 +1,19 @@
 html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}img,body,html{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}ol,ul {list-style:none;}caption,th {text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;}q:before,q:after{content:'';}
 
 body {
-  font-size: 100%;
+  font-size: 12px;
+  font-family: Helvetica;
+  color: #333;
+}
+
+h1 {
+  font-size: 20px;
+  padding: 10px 0px;
+}
+
+h2 {
+  font-size: 15px;
+  padding: 10px 0px;
 }
 
 #page {
@@ -13,3 +25,30 @@ body {
   -moz-border-radius: 10px;
   padding: 20px;
 }
+
+#breadcrumb {
+  padding: 10px 0px 20px 0px;
+}
+
+#breadcrumb, #breadcrumb a {
+  color: #666;
+  font-size: 14px;
+  text-decoration: none
+}
+
+.form_row, .key_value_row {
+  padding: 10px 0px;
+  clear:both;
+  height: 15px;
+}
+
+.key_value_row {
+  padding: 5px 0;
+}
+
+.form_row label, .key_value_row .label_like {
+  display: block;
+  width: 150px;
+}
+
+.form_row *, .key_value_row * { float: left }

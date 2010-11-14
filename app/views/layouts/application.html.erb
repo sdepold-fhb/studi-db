@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>StudiDb</title>
+    <title>Studi-DB 2.0</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <%= stylesheet_link_tag :all %>
     <%= stylesheet_link_tag 'style' %>
+
     <%= javascript_include_tag :defaults %>
+    
     <%= csrf_meta_tag %>
   </head>
   <body>
     <div id="page">
+      <h1>Studi-DB 2.0</h1>
+
+      <div id="breadcrumb"><%= raw breadcrumb %></div>
+
       <%= yield %>
     </div>
   </body>

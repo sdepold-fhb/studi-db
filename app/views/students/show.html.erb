@@ -1,0 +1,22 @@
+<h2><%= @student.last_name %>, <%= @student.first_name %></h2>
+
+<div style="padding-left: 20px;">
+  <%
+    [
+      ["Matrikelnummer", :matriculation_number],
+  #    ["Geburtsdatum", l(@student.birthday)],
+      ["Geburtsort", :place_of_birth],
+      ["Studiengang", :study_course],
+      ["Nationalität", :nationality],
+      ["Aktuelles Semester", :current_term],
+      ["Straße / Nummer", "#{@student.street} #{@student.house_number}"],
+      ["PLZ / Ort", "#{@student.zip_code} #{@student.city}"]
+    ].each do |key, value|
+  %>
+    <div class="key_value_row">
+      <span class="label_like">&raquo; <%= key %>:</span>
+      <span class="value_like"><%= value.is_a?(Symbol) ? @student.send(value) : value %></span>
+    </div>
+  <% end %>
+</div>
+

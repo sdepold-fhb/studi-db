@@ -1,0 +1,4 @@
+<% form_for @student, :action => :create do |f| %>
+  <%= render :partial => "form", :locals => {:f => f} %>
+  <br/><%= f.submit "Student anlegen" %>
+<% end %>
