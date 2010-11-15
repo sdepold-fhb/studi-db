@@ -6,7 +6,7 @@ class Exam < ActiveRecord::Base
   named_scope :normal, :conditions => {:canceled_at => nil}
 
   def cancel!
-    update_attribute :canceled_at, Date.new
+    update_attribute :canceled_at, Time.now
   end
 
   def uncancel!
