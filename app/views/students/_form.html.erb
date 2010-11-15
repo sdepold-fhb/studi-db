@@ -1,61 +1,26 @@
-<div class="form_row">
-  <%= f.label :matriculation_number, "Matrikelnummer" %>
-  <%= f.text_field :matriculation_number %>
-</div>
+<%
+   fields = [
+       [:matriculation_number, "Matrikelnummer", "text_field"],
+       [:first_name, "Vorname", "text_field"],
+       [:last_name, "Nachname", "text_field"],
+#       [:birthday, "Geburtsdatum", "date_select"],
+       [:place_of_birth, "Geburtsort", "text_field"],
+       [:study_course, "Studiengang", "text_field"],
+       [:nationality, "Nationalität", "text_field"]
+   ]
 
-<div class="form_row">
-  <%= f.label :first_name, "Vorname" %>
-  <%= f.text_field :first_name %>
-</div>
+   fields << [:current_term, "Aktuelles Semester", "text_field"] if action_name != "new"
 
-<div class="form_row">
-  <%= f.label :last_name, "Nachname" %>
-  <%= f.text_field :last_name %>
-</div>
+   fields += [
+       [:street, "Straße", "text_field"],
+       [:house_number, "Nummer", "text_field"],
+       [:zip_code, "PLZ", "text_field"],
+       [:city, "Ort", "text_field"]
+   ]
 
-<div class="form_row">
-  <%= f.label :birthday, "Geburtsdatum" %>
-  <%#= f.date_select :birthday, :start_year => 1900 %>
-</div>
-
-<div class="form_row">
-  <%= f.label :place_of_birth, "Geburtsort" %>
-  <%= f.text_field :place_of_birth %>
-</div>
-
-<div class="form_row">
-  <%= f.label :study_course, "Studiengang" %>
-  <%= f.text_field :study_course %>
-</div>
-
-<div class="form_row">
-  <%= f.label :nationality, "Nationalität" %>
-  <%= f.text_field :nationality %>
-</div>
-
-<% if action_name != 'new' %>
+   fields.each do |field, label, input|
+%>
   <div class="form_row">
-    <%= f.label :current_term, "Aktuelles Semester" %>
-    <%= f.text_field :current_term %>
+    <%= f.label field, raw("&raquo; #{label}") %><%= f.send(input.to_sym, field) %>
   </div>
 <% end %>
-
-<div class="form_row">
-  <%= f.label :street, "Straße" %>
-  <%= f.text_field :street %>
-</div>
-
-<div class="form_row">
-  <%= f.label :house_number, "Nummer" %>
-  <%= f.text_field :house_number %>
-</div>
-
-<div class="form_row">
-  <%= f.label :zip_code, "PLZ" %>
-  <%= f.text_field :zip_code %>
-</div>
-
-<div class="form_row">
-  <%= f.label :city, "Ort" %>
-  <%= f.text_field :city %>
-</div>

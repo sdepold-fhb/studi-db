@@ -23,6 +23,7 @@ h2 {
   margin: 20px auto;
   box-shadow: 0px 0px 10px #bbb;
   -moz-box-shadow: 0px 0px 10px #bbb;
+  -webkit-box-shadow: 0px 0px 10px #bbb;
   border-radius: 10px;
   -moz-border-radius: 10px;
   padding: 20px;
@@ -58,6 +59,7 @@ h2 {
 #flashes .error, #flashes .info {
   box-shadow: 0px 0px 10px #900;
   -moz-box-shadow: 0px 0px 10px #900;
+  -webkit-box-shadow: 0px 0px 10px #900;
   border-radius: 10px;
   -moz-border-radius: 10px;
   padding: 10px;
@@ -68,6 +70,7 @@ h2 {
 #flashes .info {
   box-shadow: 0px 0px 10px #bbb;
   -moz-box-shadow: 0px 0px 10px #bbb;
+  -webkit-box-shadow: 0px 0px 10px #bbb;
 }
 
 th { font-weight: bold; }
