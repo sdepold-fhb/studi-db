@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_filter :find_student, :only => [:show, :edit, :update, :marks, :courses]
+  before_filter :find_student, :only => [:show, :edit, :update, :marks, :courses, :destroy]
 
   def new
     @student = Student.new
@@ -34,6 +34,11 @@ class StudentsController < ApplicationController
       flash[:error] = "Beim Anlegen des Studenten sind fehler aufgetreten!"
       render :new
     end
+  end
+
+  def destroy
+    @student.destroy
+    redirect_to :action => :index
   end
 
   def marks
