@@ -57,6 +57,18 @@ class StudentsController < ApplicationController
     redirect_to :action => :courses, :id => params[:id]
   end
 
+  def cancel_courses
+    exams = @student.exams.normal.find(params[:exam_ids])
+    exams.map(&:cancel!)
+    redirect_to :action => :courses, :id => params[:id]
+  end
+
+  def uncancel_courses
+    exams = @student.exams.canceled.find(params[:exam_ids])
+    exams.map(&:uncancel!)
+    redirect_to :action => :courses, :id => params[:id]
+  end
+
   private
 
   def find_student
