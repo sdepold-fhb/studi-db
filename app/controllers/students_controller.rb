@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_filter :find_student, :only => [:show, :edit, :update, :marks, :courses, :destroy]
+  before_filter :find_student, :except => [:new, :index, :create]
 
   def new
     @student = Student.new
@@ -44,7 +44,17 @@ class StudentsController < ApplicationController
   def marks
   end
 
+  def generate_marks
+    @student.generate_marks
+    redirect_to :action => :marks, :id => params[:id]
+  end
+
   def courses
+  end
+
+  def generate_courses
+    @student.generate_courses
+    redirect_to :action => :courses, :id => params[:id]
   end
 
   private
