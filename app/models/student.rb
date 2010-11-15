@@ -17,15 +17,16 @@ class Student < ActiveRecord::Base
   validates_presence_of :city
 
   def generate_courses
-    my_courses = []
+    exams.destroy_all
 
     (1 + rand(20)).times do
-      my_courses << Course.generate_random
+      courses << Course.generate_random
     end
+  end
 
-    my_courses.each do |course|
-      course.save
-      Exam.create :student_id => id, :course_id => course.id
+  def generate_marks
+    exams.each do |e|
+      e.update_attribute :result, ((10 + rand(40)) / 10.0)
     end
   end
 end
