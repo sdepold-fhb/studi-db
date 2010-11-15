@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101114203904) do
+ActiveRecord::Schema.define(:version => 20101115185454) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(:version => 20101114203904) do
     t.integer  "credit_points"
     t.text     "requirements"
     t.integer  "attempt"
-    t.date     "registered_at"
-    t.date     "canceled_at"
+    t.datetime "registered_at"
+    t.datetime "canceled_at"
   end
 
   create_table "students", :force => true do |t|
