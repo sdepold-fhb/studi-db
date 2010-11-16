@@ -20,7 +20,7 @@ class StudentsController < ApplicationController
       flash[:info] = "Student wurde erfolgreich gespeichert!"
       redirect_to :action => :show, :id => @student.id
     else
-      flash[:error] = "Beim Speichern des Studenten sind fehler aufgetreten!"
+      flash[:error] = "Beim Speichern des Studenten sind Fehler aufgetreten!"
       render :edit
     end
   end
