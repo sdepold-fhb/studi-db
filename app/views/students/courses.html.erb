@@ -1,6 +1,9 @@
 <% content_for :head do %>
   <style type="text/css">
     .label_like { width: 70% !important }
+    .key_value_row:hover {
+      background: #eee;
+    }
   </style>
 <% end %>
 
@@ -11,14 +14,14 @@
     <h3>Angemeldete Kurse</h3>
     <% @student.exams.normal.each do |e| %>
       <div class="key_value_row">
-        <span class="label_like">&raquo; <%= e.course.title %></span>
-        <span class="value_like"><%= check_box_tag "exam_ids[]", e.id  %></span>
+        <span class="label_like"><%= label_tag "exam_ids_#{e.id}", raw("&raquo; #{e.course.title}") %></span>
+        <span class="value_like"><%= check_box_tag "exam_ids[]", e.id, false, :id => "exam_ids_#{e.id}"  %></span>
       </div>
     <% end %>
 
     <%= submit_tag "Von Prüfungen abmelden", :confirm => "Wirklich von den Prüfungen abmelden?" %>
   </div>
-<% end %>
+<% end if @student.exams.normal.presence %>
 
 <br/><br/>
 
@@ -27,14 +30,14 @@
     <h3>Abgemeldete Kurse</h3>
     <% @student.exams.canceled.each do |e| %>
       <div class="key_value_row">
-        <span class="label_like">&raquo; <%= e.course.title %></span>
-        <span class="value_like"><%= check_box_tag "exam_ids[]", e.id  %></span>
+        <span class="label_like"><%= label_tag "exam_ids_#{e.id}", raw("&raquo; #{e.course.title}") %></span>
+        <span class="value_like"><%= check_box_tag "exam_ids[]", e.id, false, :id => "exam_ids_#{e.id}"  %></span>
       </div>
     <% end %>
 
     <%= submit_tag "Wieder zur Prüfungen anmelden", :confirm => "Wirklich wieder anmelden?" %>
   </div>
-<% end %>
+<% end if @student.exams.canceled.presence %>
 
 
 
