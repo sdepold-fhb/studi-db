@@ -1,8 +1,13 @@
 StudiDb::Application.routes.draw do
+  get "courses/index"
+  get "courses/new"
+  get "courses/generate"
+
   root :to => "home#index"
 
   resources :students
-
+  resources :courses
+  
   match ':controller(/:action(/:id(.:format)))'
 
 

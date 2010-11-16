@@ -13,3 +13,7 @@ de:
       edit: Student bearbeiten
       marks: Noten anzeigen
       courses: Belegte Kurse anzeigen
+    courses:
+      root: Kurse
+      new: Neuen Kurs anlegen
+      show: Kurs anzeigen

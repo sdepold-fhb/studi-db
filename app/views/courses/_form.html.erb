@@ -1,0 +1,15 @@
+<%
+   fields = [
+       [:number, "Kurs-Nummer", "text_field"],
+       [:title, "Titel", "text_field"],
+       [:description, "Beschreibung", "text_area"],
+       [:lecturer, "Dozent", "text_field"],
+       [:term, "Semester", "text_field"]
+   ]
+
+   fields.each do |field, label, input|
+%>
+  <div class="form_row">
+    <%= f.label field, raw("&raquo; #{label}") %><%= f.send(input.to_sym, field) %>
+  </div>
+<% end %>

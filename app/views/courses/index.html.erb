@@ -1,0 +1,16 @@
+<%= render :partial => 'header' %>
+
+<center><%= will_paginate @courses %></center><br/>
+
+<table width="100%" cellpadding="0" cellspacing="2" border="1">
+  <tr>
+    <th>Kurs-Nummer</th>
+    <th>Titel</th>
+    <th>Beschreibung</th>
+    <th>Dozent</th>
+    <th>Semester</th>
+  </tr>
+  <%= render :partial => :course, :collection => @courses %>
+</table>
+
+<br/><center><%= will_paginate @courses %></center>

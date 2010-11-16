@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101115185454) do
+ActiveRecord::Schema.define(:version => 20101116191233) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20101115185454) do
     t.string   "title"
     t.text     "description"
     t.string   "lecturer"
-    t.string   "term"
+    t.integer  "term",        :limit => 255
   end
 
   create_table "exams", :force => true do |t|

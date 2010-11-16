@@ -1,0 +1,20 @@
+<%= render :partial => 'header' %>
+
+<h2><%= @course.title %></h2>
+
+<div style="padding-left: 20px;">
+  <%
+    [
+      ["Kurs-Nummer", :number],
+      ["Titel", :title],
+      ["Beschreibung", :description],
+      ["Dozent", :lecturer],
+      ["Semester", :term]
+    ].each do |key, value|
+  %>
+    <div class="key_value_row">
+      <span class="label_like">&raquo; <%= key %>:</span>
+      <span class="value_like"><%= value.is_a?(Symbol) ? @course.send(value) : value %></span>
+    </div>
+  <% end %>
+</div>
