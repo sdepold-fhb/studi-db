@@ -1,7 +1,10 @@
 <tr>
   <td><%= course.number %></td>
   <td><%= course.title.truncate 30 %></td>
-  <td><%= course.description.truncate 40 %></td>
+  <td><%= course.description.truncate 30 %></td>
   <td><%= course.lecturer.truncate 30 %></td>
   <td><%= course.term %></td>
+  <td>
+    <nobr><%= label_tag "course_deletion_#{course.id}", "Löschen" %> <%= check_box_tag "ids[]", course.id, false, :id => "course_deletion_#{course.id}" %></nobr>
+  </td>
 </tr>

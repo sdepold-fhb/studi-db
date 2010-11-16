@@ -31,8 +31,12 @@ class CoursesController < ApplicationController
     redirect_to :action => :index
   end
 
-  def destroy_all
-    Course.destroy_all
+  def destroy
+    if params[:ids]
+      Course.find(params[:ids]).map(&:destroy)
+    else
+      Course.destroy_all
+    end
     redirect_to :action => :index
   end
 end
