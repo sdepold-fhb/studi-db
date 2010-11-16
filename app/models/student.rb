@@ -26,7 +26,7 @@ class Student < ActiveRecord::Base
 
   def generate_marks
     exams.each do |e|
-      e.update_attribute :result, ((10 + rand(40)) / 10.0)
+      e.update_attribute :result, Course::VALID_MARKS.sample
     end
   end
 end

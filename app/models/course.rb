@@ -2,6 +2,9 @@ class Course < ActiveRecord::Base
   has_many :exams, :dependent => :destroy
   has_many :students, :through => :exams
 
+  VALID_MARKS = [1.3, 1.7, 2.0, 2.3, 2.7, 3.0, 3.3, 3.7, 4, 5]
+
+
   def self.generate_random
     Course.new(
       :number => 1 + rand(100),
