@@ -2,8 +2,8 @@ class Exam < ActiveRecord::Base
   belongs_to :student
   belongs_to :course
 
-  named_scope :canceled, :conditions => "canceled_at is not null"
-  named_scope :normal, :conditions => {:canceled_at => nil}
+  scope :canceled, :conditions => "canceled_at is not null"
+  scope :normal, :conditions => {:canceled_at => nil}
 
   def cancel!
     update_attribute :canceled_at, Time.now
