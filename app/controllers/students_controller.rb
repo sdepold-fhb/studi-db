@@ -52,11 +52,6 @@ class StudentsController < ApplicationController
   def courses
   end
 
-  def generate_courses
-    @student.generate_courses
-    redirect_to :action => :courses, :id => params[:id]
-  end
-
   def cancel_courses
     exams = @student.exams.normal.find(params[:exam_ids])
     exams.map(&:cancel!)
