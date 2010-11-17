@@ -19,7 +19,7 @@ class Student < ActiveRecord::Base
   after_create :create_exams
 
   def generate_marks
-    exams.each do |e|
+    exams.attending.each do |e|
       e.update_attribute :result, Course::VALID_MARKS.sample
     end
   end
