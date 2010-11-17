@@ -2,6 +2,7 @@ StudiDb::Application.routes.draw do
   get "courses/index"
   get "courses/new"
   get "courses/generate"
+  get "courses/destroy"
 
   root :to => "home#index"
 
