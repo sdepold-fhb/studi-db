@@ -4,6 +4,10 @@ class Exam < ActiveRecord::Base
 
   scope :canceled, :conditions => "canceled_at is not null"
   scope :normal, :conditions => {:canceled_at => nil}
+  scope :for_course, lambda { |course| where("course_id = ?", course.id) }
+  scope :attended, :conditions => "result is not null"
+  scope :attending, :conditions => { :result => nil }
+  scope :succeeded, :conditions => "result < 5 and result is not null"
 
   def cancel!
     update_attribute :canceled_at, Time.now

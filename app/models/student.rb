@@ -16,17 +16,43 @@ class Student < ActiveRecord::Base
   validates_presence_of :zip_code
   validates_presence_of :city
 
-  def generate_courses
-    exams.destroy_all
-
-    (1 + rand(20)).times do
-      courses << Course.generate_random
-    end
-  end
+  after_create :create_exams
 
   def generate_marks
     exams.each do |e|
       e.update_attribute :result, Course::VALID_MARKS.sample
+    end
+  end
+
+  def is_attending? course
+    exams.for_course(course).attending.present?
+  end
+
+  def attended_exam_in? course
+    exams.for_course(course).attended.present?
+  end
+
+  def succeeded_in? course
+    attended_exam_in?(course) and exams.for_course(course).succeeded.present?
+  end
+
+  def attempts_for course
+    exams.for_course(course).first(:order => "attempt DESC").attempt rescue 0
+  end
+
+  def create_exams
+    Course.all.each do |course|
+      next if is_attending?(course) or succeeded_in?(course)
+
+      exam_options = {
+          :student_id => self.id,
+          :course_id => course.id,
+          :number => course.number,
+          :attempt => attempts_for(course) + 1,
+          :registered_at => Time.now
+      }
+
+      exams << Exam.create(exam_options)
     end
   end
 end
