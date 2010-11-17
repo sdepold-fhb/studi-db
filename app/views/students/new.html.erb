@@ -1,3 +1,5 @@
+<%= render :partial => "header" %>
+
 <%= content_tag :pre, @student.errors.to_yaml if @student.errors.presence %><br/>
 
 <% form_for @student, :action => :create do |f| %>
