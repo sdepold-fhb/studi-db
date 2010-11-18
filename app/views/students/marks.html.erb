@@ -9,10 +9,17 @@
 <h2><%= @student.last_name %>, <%= @student.first_name %></h2>
 
 <div style="padding-left: 20px;">
-  <% @student.exams.each do |e| %>
-    <div class="key_value_row">
-      <span class="label_like">&raquo; <%= e.course.title %>:</span>
-      <span class="value_like"><%= e.result || "Bislang kein Resultat!" %></span>
-    </div>
+  <%
+     grouped_exams = @student.exams.group_by{|e| e.course.term}
+     grouped_exams.keys.sort.each do |term|
+  %>
+    <br/><br/><h3>Semester <%= term %></h3>
+    <hr style="border: none; border-bottom: 1px solid #ccc;"/>
+    <% grouped_exams[term].each do |e| %>
+      <div class="key_value_row">
+        <span class="label_like">&raquo; <%= e.course.title %>:</span>
+        <span class="value_like"><%= e.result || "Bislang kein Resultat!" %></span>
+      </div>
+    <% end %>
   <% end %>
 </div>

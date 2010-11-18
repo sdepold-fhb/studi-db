@@ -1,0 +1,13 @@
+<%
+   grouped_exams = exams.group_by{|e| e.course.term}
+   grouped_exams.keys.sort.each do |term|
+%>
+  <br/><br/><h3>Semester <%= term %></h3>
+  <hr style="border: none; border-bottom: 1px solid #ccc;"/>
+  <% grouped_exams[term].each do |e| %>
+    <div class="key_value_row">
+      <span class="label_like"><%= label_tag "exam_ids_#{e.id}", raw("&raquo; #{e.course.title}") %></span>
+      <span class="value_like"><%= check_box_tag "exam_ids[]", e.id, false, :id => "exam_ids_#{e.id}"  %></span>
+    </div>
+  <% end %>
+<% end %>
