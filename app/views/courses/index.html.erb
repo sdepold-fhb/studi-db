@@ -1,3 +1,16 @@
+<% content_for :head do %>
+  <style type="text/css">
+    td div {
+      width: 150px;
+      overflow-x: hidden
+    }
+
+    td div.narrow {
+      width: 62px;
+    }
+  </style>
+<% end %>
+
 <%= render :partial => 'header' %>
 
 <center><%= will_paginate @courses %></center><br/>
@@ -5,7 +18,7 @@
 <% form_tag :action => :destroy do %>
   <table width="100%" cellpadding="0" cellspacing="2" border="1">
     <tr>
-      <th>Kurs-Nummer</th>
+      <th width="62">Kurs - Nummer</th>
       <th>Titel</th>
       <th>Beschreibung</th>
       <th>Dozent</th>

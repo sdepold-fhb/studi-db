@@ -1,10 +1,12 @@
 <tr>
-  <td><%= course.number %></td>
-  <td><%= course.title.truncate 30 %></td>
-  <td><%= course.description.truncate 30 %></td>
-  <td><%= course.lecturer.truncate 30 %></td>
-  <td><%= course.term %></td>
+  <td><div class="narrow"><%= course.number %></div></td>
+  <td><div><%= course.title %></div></td>
+  <td><div><%= course.description %></div></td>
+  <td><div><%= course.lecturer %></div></td>
+  <td><div class="narrow"><%= course.term %></div></td>
   <td>
-    <nobr><%= label_tag "course_deletion_#{course.id}", "Löschen" %> <%= check_box_tag "ids[]", course.id, false, :id => "course_deletion_#{course.id}" %></nobr>
+    <div class="narrow">
+      <nobr><%= label_tag "course_deletion_#{course.id}", "Löschen" %> <%= check_box_tag "ids[]", course.id, false, :id => "course_deletion_#{course.id}" %></nobr>
+    </div>
   </td>
 </tr>
