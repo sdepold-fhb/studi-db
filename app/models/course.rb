@@ -29,11 +29,11 @@ class Course < ActiveRecord::Base
   end
 
   def self.generate_lecturer
-    titles = [ "Dr.", "Prof.", "Prof. Dr.", "Herr/Frau" ]
+    titles = [ "Dr.", "Prof.", "Prof. Dr.", "" ]
     first_names = %w(Andre Friedrich Horst Eberhart Susanne Otto Alexander Axel Alois Sarah Martin Greta Leo Sascha Karl-Eugen Karl Paul-Eduard Paul)
     last_names = %w(Meier Hinterhuber Hunzel Brams Mustermann Schulz Fummelhauer-Beckenboden Schmidt Günther Busse Mueller Herrmann Schmidt Braun Meyer Schneider Maier Wurst Peter Engelmann Heinz Huber Schulz Fischer Becker Weber Meier Lehmann Schwab Gross Schuster Saber Schmid Krueger Wagner Werner Schulze Richter Schroeder)
 
-    [titles.sort_by{rand}.first, first_names.sort_by{rand}.first, last_names.sort_by{rand}.first].join(" ")
+    [titles.sort_by{rand}.first, first_names.sort_by{rand}.first, last_names.sort_by{rand}.first].join(" ").strip
   end
 
   def self.generate_random
