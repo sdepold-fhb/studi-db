@@ -6,6 +6,7 @@ class Course < ActiveRecord::Base
 
   VALID_MARKS = [1.3, 1.7, 2.0, 2.3, 2.7, 3.0, 3.3, 3.7, 4, 5]
 
+  # randomly generates a title for a course
   def self.generate_title
     parts = [
       ["Klassifikation", "sicherheitsrelevanter Anwendungen", "in der Bildverarbeitung"],
@@ -28,6 +29,7 @@ class Course < ActiveRecord::Base
     result.join(" ")
   end
 
+  # randomly generated the name of a lecturer
   def self.generate_lecturer
     titles = [ "Dr.", "Prof.", "Prof. Dr.", "" ]
     first_names = %w(Andre Friedrich Horst Eberhart Susanne Otto Alexander Axel Alois Sarah Martin Greta Leo Sascha Karl-Eugen Karl Paul-Eduard Paul)
@@ -36,6 +38,7 @@ class Course < ActiveRecord::Base
     [titles.sort_by{rand}.first, first_names.sort_by{rand}.first, last_names.sort_by{rand}.first].join(" ").strip
   end
 
+  # returns a new generated course
   def self.generate_random
     Course.new(
       :number => 1 + rand(100),
@@ -46,6 +49,8 @@ class Course < ActiveRecord::Base
     )
   end
 
+  # this methods is called after the creation of a course
+  # it runs through all students and creates the exam of the course
   def create_exams
     Student.all.map(&:create_exams)
   end

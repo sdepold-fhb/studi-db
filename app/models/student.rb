@@ -18,28 +18,34 @@ class Student < ActiveRecord::Base
 
   after_create :create_exams
 
+  # generates a mark for each exam
   def generate_marks
     exams.attending.each do |e|
       e.update_attribute :result, Course::VALID_MARKS.sample
     end
   end
 
+  # returns if the student is attending the exam for the course
   def is_attending? course
     exams.for_course(course).attending.present?
   end
 
+  # returns if the student has already attended the exam for the course in the past
   def attended_exam_in? course
     exams.for_course(course).attended.present?
   end
 
+  # returns if the student succeeded the exam for the course
   def succeeded_in? course
     attended_exam_in?(course) and exams.for_course(course).succeeded.present?
   end
 
+  # return the number of attempts for the course's exam
   def attempts_for course
     exams.for_course(course).first(:order => "attempt DESC").attempt rescue 0
   end
 
+  # create the exams for each course 
   def create_exams
     Course.all.each do |course|
       next if is_attending?(course) or succeeded_in?(course)

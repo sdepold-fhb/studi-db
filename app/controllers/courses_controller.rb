@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   def index
+    # paginate loads the courses with a given page and a specified number of elements
     @courses = Course.paginate :per_page => 20, :page => params[:page], :order => "term ASC"
   end
 
@@ -8,7 +9,6 @@ class CoursesController < ApplicationController
   end
 
   def edit
-
   end
 
   def show
@@ -31,6 +31,7 @@ class CoursesController < ApplicationController
     redirect_to :action => :index
   end
 
+  # destroys all courses or just specific one if ids are passed
   def destroy
     if params[:ids]
       Course.find(params[:ids]).map(&:destroy)

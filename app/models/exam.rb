@@ -9,10 +9,12 @@ class Exam < ActiveRecord::Base
   scope :attending, :conditions => { :result => nil }
   scope :succeeded, :conditions => "result < 5 and result is not null"
 
+  # cancels the exam
   def cancel!
     update_attribute :canceled_at, Time.now
   end
 
+  # removed cancel state
   def uncancel!
     update_attribute :canceled_at, nil
   end
